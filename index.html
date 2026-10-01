@@ -188,7 +188,7 @@
         <p class="section-subtitle">From bridal glam to everyday elegance — each look crafted with precision and passion.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card reveal" data-img="assets/services/bridal.png" data-title="Bridal Makeup">
+        <div class="service-card reveal" data-img="assets/services/bridal.jpg" data-title="Bridal Makeup">
           <div class="service-number">01</div>
           <div class="service-icon"><i data-lucide="crown"></i></div>
           <h3 class="service-name">Bridal Makeup</h3>
@@ -196,7 +196,7 @@
           <span class="service-tag">Most Popular</span>
           <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal" data-img="assets/services/engagement.png" data-title="Engagement & Reception Makeup">
+        <div class="service-card reveal" data-img="assets/services/engagement.jpg" data-title="Engagement & Reception Makeup">
           <div class="service-number">02</div>
           <div class="service-icon"><i data-lucide="diamond"></i></div>
           <h3 class="service-name">Engagement & Reception</h3>
@@ -204,7 +204,7 @@
           <span class="service-tag">Premium</span>
           <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal" data-img="assets/services/party.png" data-title="Party Makeup">
+        <div class="service-card reveal" data-img="assets/services/party.jpg" data-title="Party Makeup">
           <div class="service-number">03</div>
           <div class="service-icon"><i data-lucide="party-popper"></i></div>
           <h3 class="service-name">Party Makeup</h3>
@@ -212,7 +212,7 @@
           <span class="service-tag">Trending</span>
           <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal" data-img="assets/services/saree.png" data-title="Saree Draping">
+        <div class="service-card reveal" data-img="assets/services/saree.jpg" data-title="Saree Draping">
           <div class="service-number">04</div>
           <div class="service-icon"><i data-lucide="shirt"></i></div>
           <h3 class="service-name">Saree Draping</h3>
@@ -220,7 +220,7 @@
           <span class="service-tag">Exclusive</span>
           <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal" data-img="assets/services/hair.png" data-title="Hair Styling & Updo">
+        <div class="service-card reveal" data-img="assets/services/hair.jpg" data-title="Hair Styling & Updo">
           <div class="service-number">05</div>
           <div class="service-icon"><i data-lucide="scissors"></i></div>
           <h3 class="service-name">Hair Styling & Updo</h3>
@@ -470,10 +470,11 @@
   <!-- ── SERVICE IMAGE MODAL ── -->
   <div id="serviceModal" class="svc-modal" onclick="closeServiceModal(event)">
     <div class="svc-modal-inner">
-      <button class="svc-modal-close" onclick="closeServiceModal()"><i data-lucide="x"></i></button>
+      <button class="svc-modal-close" onclick="closeServiceModal()" aria-label="Close Modal"><i data-lucide="x"></i></button>
       <img id="svcModalImg" src="" alt="" class="svc-modal-img" />
-      <div style="text-align:center; padding: 14px 0 6px;">
-        <button type="button" class="btn-primary" onclick="bookFromServiceModal()" style="margin: 0 auto; font-size: 13px;">
+      <div style="text-align:center; padding: 14px 0 4px;">
+        <h4 id="svcModalTitle" style="color:var(--ivory); font-family:var(--font-display); font-size:1.35rem; margin:0 0 10px; font-weight:400; letter-spacing:0.5px;"></h4>
+        <button type="button" class="btn-primary" onclick="bookFromServiceModal()" style="margin: 0 auto; font-size: 11.5px; padding: 10px 20px; white-space: nowrap; letter-spacing: 0.5px;">
           <span><i data-lucide="calendar" class="btn-icon"></i> Book This Service</span>
         </button>
       </div>
@@ -611,16 +612,16 @@
     <div class="ws-modal-inner">
       <button type="button" class="ws-modal-close" onclick="closeWorkshopModal()" aria-label="Close Modal"><i data-lucide="x"></i></button>
       
-      <div class="ws-form-card" style="padding: 44px 40px;">
-        <div class="ws-form-header" style="text-align: center; margin-bottom: 22px;">
+      <div class="ws-form-card">
+        <div class="ws-form-header">
           <span class="section-tag"><i data-lucide="crown" class="icon-tag"></i> Certified Masterclass</span>
-          <h3 style="font-family: var(--font-display); font-size: 1.85rem; color: var(--ivory); margin: 8px 0 6px;">1-Day Bridal Makeup Masterclass</h3>
-          <p style="color: var(--text-muted); font-size: 13px; max-width: 480px; margin: 0 auto 12px;">WEDDING × RECEPTION • Intensive Live Demonstration &amp; Techniques</p>
+          <h3>1-Day Bridal Makeup Masterclass</h3>
+          <p>WEDDING × RECEPTION • Intensive Live Demo &amp; Practical Techniques</p>
           
           <div class="ws-modal-meta-pills">
             <span class="modal-pill"><i data-lucide="calendar"></i> 11 October 2026</span>
             <span class="modal-pill"><i data-lucide="clock"></i> 11:00 AM – 5:00 PM</span>
-            <span class="modal-pill"><i data-lucide="award"></i> Digital Certificate Included</span>
+            <span class="modal-pill"><i data-lucide="award"></i> Digital Certificate</span>
           </div>
 
           <!-- Live Modal Countdown Timer Badge -->
@@ -630,7 +631,7 @@
             <strong class="ws-modal-live-timer" id="wsModalTimer">09d : 18h : 38m : 11s</strong>
           </div>
 
-          <div class="ws-badge-fee" style="display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:1px; font-weight:700; color:var(--gold); border:1px solid rgba(201,168,76,0.5); padding:7px 22px; border-radius:30px; background:rgba(201,168,76,0.1); margin-top:8px;">SPECIAL OFFER: <del style="color:rgba(255,255,255,0.45); margin-right:4px; text-decoration-color:#e63946;">₹15,000</del> <span style="color:#fff; font-size:14px; font-weight:800;">₹4,999 ONLY</span> / PERSON</div>
+          <div class="ws-badge-fee">SPECIAL OFFER: <del>₹15,000</del> <strong class="fee-price">₹4,999 / PERSON</strong></div>
         </div>
 
         <!-- Inline Error Alert Box (Visible inside form on submission error) -->
@@ -722,14 +723,16 @@
     function openServiceModal(btn) {
       const card = btn.closest('.service-card');
       const img = card.getAttribute('data-img');
-      const title = card.getAttribute('data-title');
+      const title = card.getAttribute('data-title') || '';
       const modal = document.getElementById('serviceModal');
       const modalImg = document.getElementById('svcModalImg');
+      const titleEl = document.getElementById('svcModalTitle');
       modalImg.src = img;
       modalImg.alt = title;
+      if (titleEl) titleEl.textContent = title;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function closeServiceModal(e) {
