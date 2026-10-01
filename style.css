@@ -2748,6 +2748,43 @@ html, body {
     margin-right: 4px !important;
   }
 
+  /* Workshop Location & Venue Direct Inquiries Buttons */
+  .ws-contact-callout-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .ws-callout-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 11px 4px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  .ws-callout-btn .btn-icon,
+  .ws-callout-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .ws-callout-btn span {
+    white-space: nowrap !important;
+    letter-spacing: 0.2px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
   /* Real Google Maps Container */
   .contact-map {
     min-height: 320px !important;
