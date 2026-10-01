@@ -1533,6 +1533,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: rotate(90deg);
 }
 
+/* Responsive Desktop / Mobile Button Text Switch */
+.btn-txt-d { display: inline; }
+.btn-txt-m { display: none; }
+
 /* ── ON-PAGE BOOKING & WORKSHOP CTA CARDS ── */
 .booking-cta-card, .ws-cta-card {
   max-width: 780px;
@@ -1587,12 +1591,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-wrap: wrap;
 }
 @media (max-width: 640px) {
-  .app-modal, .ws-modal { padding: 12px; }
-  .app-modal-inner, .ws-modal-inner { max-height: 94vh; }
-  .app-modal-close, .ws-modal-close { top: 12px; right: 12px; width: 34px; height: 34px; }
-  .booking-card { padding: 36px 18px 24px !important; }
-  .ws-form-card { padding: 32px 18px 24px !important; }
-  .booking-cta-card, .ws-cta-card { padding: 36px 20px; }
+  .booking-cta-card, .ws-cta-card { padding: 32px 18px; }
 }
 
 /* ── HOME SERVICE BANNER ── */
@@ -2369,7 +2368,7 @@ html, body {
     height: 13px !important;
   }
 
-  /* 2 Cards per Line for Services */
+  /* 2 Cards per Line for Services + 5th Card Full Width (Span 2) */
   .services-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
@@ -2380,6 +2379,17 @@ html, body {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+  }
+  /* Hair Styling & Updo spans across 2 tiles on mobile to fill empty space */
+  .services-grid .service-card:nth-child(5),
+  .services-grid .service-card:last-child {
+    grid-column: span 2 !important;
+    width: 100% !important;
+  }
+  .services-grid .service-card:nth-child(5) .service-desc,
+  .services-grid .service-card:last-child .service-desc {
+    max-width: 320px !important;
+    text-align: center !important;
   }
   .service-icon {
     width: 36px !important;
@@ -2423,6 +2433,61 @@ html, body {
   .service-view-btn .btn-icon {
     width: 12px !important;
     height: 12px !important;
+  }
+
+  /* Home Service Banner: Compact Single-Line Book Appointment Button */
+  .home-service-banner {
+    border-radius: 14px !important;
+    margin-bottom: 24px !important;
+    max-height: 340px !important;
+  }
+  .hs-banner-img {
+    height: 340px !important;
+  }
+  .hs-banner-overlay {
+    padding: 20px 14px !important;
+  }
+  .hs-banner-tag {
+    font-size: 0.72rem !important;
+    margin-bottom: 6px !important;
+  }
+  .hs-banner-title {
+    font-size: 1.45rem !important;
+    margin-bottom: 6px !important;
+  }
+  .hs-banner-sub {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
+    max-width: 290px !important;
+  }
+  .hs-book-btn {
+    padding: 9px 18px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 20px !important;
+    width: auto !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+  .hs-book-btn span {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+  }
+  .hs-book-btn .btn-icon,
+  .hs-book-btn svg {
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
   }
 
   /* Service Image Modal Responsive */
@@ -2653,80 +2718,414 @@ html, body {
     justify-content: center !important;
   }
 
-  /* Modal Typography & Compact Spacing */
-  .fee-price {
-    white-space: nowrap !important;
-    color: #fff !important;
-    font-weight: 800 !important;
-  }
-  .ws-badge-fee {
-    display: inline-flex !important;
+  /* ══════════════════════════════════════════════════════════════
+     COMPACT MOBILE MODAL EXPERIENCE (APPOINTMENT & WORKSHOP)
+     - Zero Horizontal Overflow (360px, 375px, 390px, 412px)
+     - Yellow scrollbar thumb eliminated on mobile
+     - Symmetric Service Mode toggle (Home Service / Visit Studio)
+     - Compact form inputs (44px), labels & textarea (64px)
+     - Compact masterclass header, countdown & fee offer
+     - Responsive submit buttons without clipping
+     ══════════════════════════════════════════════════════════════ */
+
+  /* 1. Modal Containers & Scrollbar Removal */
+  .app-modal, .ws-modal {
+    padding: 10px 8px !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
-    font-size: 10.5px !important;
-    padding: 5px 12px !important;
-    border-radius: 20px !important;
-    white-space: nowrap !important;
-    margin-top: 6px !important;
   }
+  .app-modal-inner, .ws-modal-inner {
+    max-width: 410px !important;
+    width: 100% !important;
+    max-height: 88vh !important;
+    border-radius: 14px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .app-modal-inner::-webkit-scrollbar,
+  .ws-modal-inner::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .app-modal-close, .ws-modal-close {
+    top: 10px !important;
+    right: 10px !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 25 !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    background: rgba(18, 18, 18, 0.95) !important;
+  }
+  .app-modal-close svg, .ws-modal-close svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* 2. Inner Cards */
+  .app-modal .booking-card {
+    padding: 18px 14px 16px !important;
+    border: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+  .ws-modal .ws-form-card {
+    padding: 18px 12px 16px !important;
+    border: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Steps Bar (Appointment Modal) */
+  .app-modal .steps-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 310px !important;
+    margin: 0 auto 14px !important;
+    padding: 0 !important;
+    gap: 2px !important;
+  }
+  .app-modal .step {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex: 0 0 auto !important;
+  }
+  .app-modal .step-dot {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+  }
+  .app-modal .step span {
+    font-size: 8.5px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+  }
+  .app-modal .step-line {
+    flex: 1 1 14px !important;
+    min-width: 10px !important;
+    max-width: 30px !important;
+    margin: 0 4px 14px !important;
+    height: 1px !important;
+  }
+
+  /* 4. Headings & Titles */
+  .app-modal .step-title {
+    font-size: 1.15rem !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 6px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px !important;
+  }
+  .ws-modal .ws-form-header {
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2) !important;
+    text-align: center !important;
+  }
+  .ws-modal .ws-form-header .section-tag {
+    font-size: 9px !important;
+    padding: 2px 8px !important;
+    margin-bottom: 4px !important;
+    letter-spacing: 1px !important;
+  }
+  .ws-modal .ws-form-header h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+    margin: 4px 0 2px !important;
+    font-weight: 400 !important;
+  }
+  .ws-modal .ws-form-header p {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 6px !important;
+    color: var(--text-muted) !important;
+  }
+
+  /* 5. Workshop Meta Pills, Timer & Fee Badge */
   .ws-modal-meta-pills {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 4px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
   .modal-pill {
-    font-size: 9.5px !important;
-    padding: 3px 8px !important;
+    font-size: 9px !important;
+    padding: 3px 7px !important;
     border-radius: 12px !important;
     white-space: nowrap !important;
+  }
+  .modal-pill svg {
+    width: 11px !important;
+    height: 11px !important;
+    margin-right: 3px !important;
   }
   .ws-modal-timer-badge {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 5px !important;
-    padding: 4px 10px !important;
-    margin: 6px auto !important;
-    font-size: 10px !important;
+    padding: 3px 9px !important;
+    margin: 3px auto !important;
+    font-size: 9.5px !important;
     white-space: nowrap !important;
+    border-radius: 16px !important;
+    background: rgba(201, 168, 76, 0.08) !important;
+    border: 1px solid rgba(201, 168, 76, 0.25) !important;
   }
   .ws-modal-timer-badge .modal-timer-icon {
-    width: 12px !important;
-    height: 12px !important;
+    width: 11px !important;
+    height: 11px !important;
   }
   .ws-modal-live-timer {
-    font-size: 11.5px !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
     color: #ffda6a !important;
   }
-  .app-modal-inner, .ws-modal-inner {
-    max-width: 95% !important;
-    max-height: 92vh !important;
-    border-radius: 12px !important;
+  .ws-badge-fee {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    font-size: 10px !important;
+    padding: 4px 10px !important;
+    border-radius: 16px !important;
+    white-space: normal !important;
+    margin: 5px auto 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
   }
-  .app-modal-close, .ws-modal-close {
-    top: 8px !important;
-    right: 8px !important;
-    width: 32px !important;
-    height: 32px !important;
+  .ws-badge-fee del {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 10px !important;
   }
-  .app-modal .booking-card {
-    padding: 24px 14px 18px !important;
+  .fee-price {
+    white-space: nowrap !important;
+    color: #ffda6a !important;
+    font-weight: 800 !important;
+    font-size: 11px !important;
   }
-  .app-modal .steps-bar {
+
+  /* 6. Form Rows, Groups, Labels & Inputs */
+  .app-modal .form-row,
+  .ws-modal .form-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+  .app-modal .form-group,
+  .ws-modal .form-group {
+    margin-bottom: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .app-modal .form-group label,
+  .ws-modal .form-group label {
+    font-size: 9.5px !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 4px !important;
+    font-weight: 600 !important;
+  }
+  .app-modal .form-group input,
+  .app-modal .form-group select,
+  .ws-modal .form-group input,
+  .ws-modal .form-group select {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .app-modal .form-group textarea,
+  .ws-modal .form-group textarea {
+    min-height: 64px !important;
+    height: 64px !important;
+    padding: 8px 12px !important;
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    border-radius: 8px !important;
+    resize: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 7. Service Mode Toggle (Balanced 2 Equal Buttons) */
+  .mode-toggle {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .mode-btn {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 6px 6px !important;
+    font-size: 11.5px !important;
+    letter-spacing: 0.3px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 6px !important;
-    margin-bottom: 18px !important;
+    white-space: nowrap !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
   }
-  .app-modal .step span {
-    font-size: 9px !important;
+  .mode-btn .btn-icon,
+  .mode-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
   }
-  .app-modal .step-dot {
-    width: 22px !important;
-    height: 22px !important;
+
+  /* 8. Service Pills in Step 2 */
+  .app-modal .service-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 6px !important;
+  }
+  .app-modal .pill {
+    padding: 7px 11px !important;
+    font-size: 11.5px !important;
+    border-radius: 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+  }
+  .app-modal .pill .btn-icon,
+  .app-modal .pill svg {
+    width: 13px !important;
+    height: 13px !important;
+    margin: 0 !important;
+  }
+
+  /* 9. Compact WhatsApp Info Box */
+  .wa-note {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+    padding: 8px 10px !important;
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+    background: rgba(37, 211, 102, 0.08) !important;
+    border: 1px solid rgba(37, 211, 102, 0.25) !important;
+    box-sizing: border-box !important;
+  }
+  .wa-note span,
+  .wa-note .wa-icon-svg {
+    width: 15px !important;
+    height: 15px !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+  .wa-note p {
     font-size: 10.5px !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 !important;
+  }
+
+  /* 10. Summary Box in Step 3 */
+  .app-modal .summary-box {
+    padding: 12px 14px !important;
+    margin-bottom: 12px !important;
+    border-radius: 8px !important;
+  }
+  .app-modal .summary-title {
+    font-size: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .app-modal .summary-grid {
+    gap: 8px !important;
+  }
+  .app-modal .summary-item label {
+    font-size: 8px !important;
+    margin-bottom: 2px !important;
+  }
+  .app-modal .summary-item p {
+    font-size: 12px !important;
+  }
+
+  /* 11. Compact Action Buttons */
+  .app-modal .step-actions {
+    display: flex !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+    width: 100% !important;
+  }
+  .app-modal .step-actions .next-btn,
+  .app-modal .step-actions .form-submit {
+    width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 14px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .app-modal .step-actions .back-btn {
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 14px !important;
+    font-size: 12px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .ws-submit-block {
+    margin-top: 10px !important;
+    width: 100% !important;
+  }
+  .ws-modal .ws-submit-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 12px !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+  .ws-modal .ws-submit-btn .wa-icon-svg {
+    width: 16px !important;
+    height: 16px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Responsive Button Text Toggle */
+  .btn-txt-d {
+    display: none !important;
+  }
+  .btn-txt-m {
+    display: inline !important;
   }
 
   /* Safe bottom spacing for floating island dock */
