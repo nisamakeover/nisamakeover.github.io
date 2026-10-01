@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NISA MAKEOVER — Luxury beauty services at your doorstep. Professional bridal makeup, hair styling, saree draping in Hyderabad." />
   <title>NISA MAKEOVER — Beauty Beyond Borders</title>
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
   <link rel="icon" type="image/jpeg" href="assets/logo/logo.jpg" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
@@ -158,6 +158,71 @@
         flex-shrink: 0 !important;
       }
 
+      /* Hyderabad Premier Beauty Studio 1 Line */
+      .hero-eyebrow {
+        font-size: clamp(8px, 2.5vw, 9.5px) !important;
+        letter-spacing: 1px !important;
+        padding: 4px 10px !important;
+        white-space: nowrap !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .hero-eyebrow .icon-tag,
+      .hero-eyebrow svg {
+        width: 11px !important;
+        height: 11px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* 500+ Happy Brides and other 2 items strictly 1 line */
+      .hero-highlights {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 4px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto 20px !important;
+      }
+      .hero-hl-item {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3px !important;
+        font-size: 8.5px !important;
+        padding: 4px 6px !important;
+        border-radius: 20px !important;
+        white-space: nowrap !important;
+        flex: 1 1 auto !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+      }
+      .hero-hl-item .hl-icon {
+        width: 10px !important;
+        height: 10px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Visit Studio Address strictly 2 lines */
+      .mode-address {
+        font-size: clamp(9px, 2.6vw, 11px) !important;
+        padding: 8px 10px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 16px !important;
+      }
+      .mode-addr-line {
+        display: block !important;
+        white-space: nowrap !important;
+      }
+
+      /* Why Choose NISA MAKEOVER - NISA MAKEOVER in 2nd line */
+      #why-choose .section-title span {
+        white-space: nowrap !important;
+        display: inline-block !important;
+      }
+
       /* Global Responsive Button Text */
       .btn-txt-d {
         display: none !important;
@@ -238,11 +303,11 @@
           </div>
           <div class="hero-hl-item">
             <i data-lucide="award" class="hl-icon"></i>
-            <span>Certified Luxury Artists</span>
+            <span>Certified Artists</span>
           </div>
           <div class="hero-hl-item">
             <i data-lucide="home" class="hl-icon"></i>
-            <span>Home &amp; Studio Service</span>
+            <span>Home &amp; Studio</span>
           </div>
         </div>
 
@@ -422,8 +487,8 @@
           <h3 class="mode-title">Visit Our Studio</h3>
           <p class="mode-desc">Visit our studio for a personalized luxury beauty experience in a serene, professional environment.</p>
           <div class="mode-address">
-            <i data-lucide="map-pin" class="icon-inline"></i> Pillar No. 242, Near Fish Building, Attapur Road<br>
-            Hyderabad, Telangana
+            <span class="mode-addr-line"><i data-lucide="map-pin" class="icon-inline"></i> Pillar No. 242, Near Fish Building, Attapur Road</span>
+            <span class="mode-addr-line">Hyderabad, Telangana</span>
           </div>
           <a href="https://maps.google.com/?q=Pillar+No.+242+Near+Fish+Building+Attapur+Road+Hyderabad" target="_blank" class="btn-outline"><i data-lucide="map-pin" class="btn-icon"></i> Get Directions</a>
         </div>
@@ -436,7 +501,7 @@
     <div class="container">
       <div class="why-header reveal">
         <span class="section-tag"><i data-lucide="gem" class="icon-tag"></i> Our Promise</span>
-        <h2 class="section-title">Why Choose <span>NISA MAKEOVER</span></h2>
+        <h2 class="section-title">Why Choose<br><span style="white-space: nowrap;">NISA MAKEOVER</span></h2>
         <div class="gold-line"></div>
       </div>
       <div class="why-grid">

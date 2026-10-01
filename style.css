@@ -630,9 +630,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     font-size: 15px;
   }
   .hero-highlights {
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 28px;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 auto 24px !important;
+  }
+  .hero-hl-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    font-size: 8.5px !important;
+    padding: 4px 6px !important;
+    border-radius: 20px !important;
+    white-space: nowrap !important;
+    flex: 1 1 auto !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  .hero-hl-item .hl-icon {
+    width: 10px !important;
+    height: 10px !important;
+    flex-shrink: 0 !important;
   }
   .hero-btns {
     justify-content: center;
@@ -655,10 +679,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     padding: 95px 16px 50px;
   }
   .hero-eyebrow {
-    font-size: 9.5px;
-    letter-spacing: 2.5px;
-    padding: 5px 14px;
+    font-size: clamp(8px, 2.5vw, 9.5px);
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    max-width: 100%;
     margin-bottom: 16px;
+    box-sizing: border-box;
   }
   .hero-heading {
     font-size: 2.1rem;
@@ -2598,11 +2625,19 @@ html, body {
     margin-right: auto !important;
   }
   .mode-address {
-    font-size: 11px !important;
-    padding: 10px !important;
-    line-height: 1.45 !important;
+    font-size: clamp(9px, 2.6vw, 11px) !important;
+    padding: 8px 10px !important;
+    line-height: 1.4 !important;
     margin-bottom: 16px !important;
     border-radius: 6px !important;
+  }
+  .mode-addr-line {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+  #why-choose .section-title span {
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
   .mode-card .btn-outline,
   .mode-card .btn-primary {
