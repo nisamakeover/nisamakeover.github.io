@@ -2748,41 +2748,63 @@ html, body {
     margin-right: 4px !important;
   }
 
-  /* Workshop Location & Venue Direct Inquiries Buttons */
+  /* Workshop Location & Venue Direct Inquiries Icon-Only Buttons */
   .ws-contact-callout-actions {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
     width: 100% !important;
+    margin: 12px auto 0 !important;
     box-sizing: border-box !important;
   }
-  .ws-callout-btn {
+  .ws-icon-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 5px !important;
-    padding: 11px 4px !important;
-    font-size: 11px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.2px !important;
-    white-space: nowrap !important;
-    width: 100% !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+    cursor: pointer !important;
     box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-  .ws-callout-btn .btn-icon,
-  .ws-callout-btn svg {
-    width: 14px !important;
-    height: 14px !important;
-    margin: 0 !important;
     flex-shrink: 0 !important;
+    padding: 0 !important;
+    outline: none !important;
   }
-  .ws-callout-btn span {
-    white-space: nowrap !important;
-    letter-spacing: 0.2px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px !important;
+  .ws-icon-wa {
+    background: #25D366 !important;
+    color: #ffffff !important;
+    border: 1px solid #34e777 !important;
+  }
+  .ws-icon-wa:hover, .ws-icon-wa:active {
+    background: #20ba5a !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4) !important;
+  }
+  .ws-icon-call {
+    background: linear-gradient(135deg, #d8ae43, #c9a84c) !important;
+    color: #0b0906 !important;
+    border: 1px solid rgba(255,255,255,0.4) !important;
+  }
+  .ws-icon-call:hover, .ws-icon-call:active {
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 20px rgba(216,174,67,0.4) !important;
+  }
+  .ws-icon-btn svg,
+  .ws-icon-btn i {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    margin: 0 !important;
+    color: inherit !important;
+    stroke: currentColor;
+    flex-shrink: 0 !important;
   }
 
   /* Real Google Maps Container */
