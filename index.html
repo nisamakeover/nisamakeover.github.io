@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NISA MAKEOVER — Luxury beauty services at your doorstep. Professional bridal makeup, hair styling, saree draping in Hyderabad." />
   <title>NISA MAKEOVER — Beauty Beyond Borders</title>
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=19" />
   <link rel="icon" type="image/jpeg" href="assets/logo/logo.jpg" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
@@ -230,6 +230,91 @@
       .btn-txt-m {
         display: inline !important;
       }
+
+      /* Premium Logo Text Mobile Styling */
+      .nav-logo {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        text-decoration: none !important;
+      }
+      .nav-logo img {
+        height: 42px !important;
+        width: 42px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        border: 1.5px solid rgba(201, 168, 76, 0.6) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 10px rgba(201, 168, 76, 0.25) !important;
+        flex-shrink: 0 !important;
+      }
+      .nav-logo-text {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        line-height: 1.1 !important;
+      }
+      .nav-logo-text .brand {
+        font-family: var(--font-display, 'Cormorant Garamond', serif) !important;
+        font-size: 1.25rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 2px !important;
+        color: #ffffff !important;
+        text-transform: uppercase !important;
+        line-height: 1.1 !important;
+        text-shadow: 0 0 12px rgba(216, 174, 67, 0.75), 0 2px 4px rgba(0,0,0,0.9) !important;
+        white-space: nowrap !important;
+      }
+      .nav-logo-text .tagline {
+        font-family: var(--font-body, 'Jost', sans-serif) !important;
+        font-size: 8px !important;
+        font-weight: 500 !important;
+        letter-spacing: 2px !important;
+        color: var(--gold-light, #e2c06a) !important;
+        text-transform: uppercase !important;
+        margin-top: 2px !important;
+        white-space: nowrap !important;
+        opacity: 0.95 !important;
+      }
+      .footer-logo {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+      }
+      .footer-logo img {
+        height: 48px !important;
+        width: 48px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        border: 1.5px solid rgba(201, 168, 76, 0.5) !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6) !important;
+        flex-shrink: 0 !important;
+      }
+      .footer-logo-text {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        line-height: 1.1 !important;
+      }
+      .footer-logo-text .brand {
+        font-family: var(--font-display, 'Cormorant Garamond', serif) !important;
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 2px !important;
+        color: #ffffff !important;
+        text-transform: uppercase !important;
+        line-height: 1.1 !important;
+        text-shadow: 0 0 12px rgba(216, 174, 67, 0.6), 0 2px 4px rgba(0,0,0,0.9) !important;
+      }
+      .footer-logo-text .tagline {
+        font-family: var(--font-body, 'Jost', sans-serif) !important;
+        font-size: 8.5px !important;
+        font-weight: 500 !important;
+        letter-spacing: 2.2px !important;
+        color: var(--gold-light, #e2c06a) !important;
+        text-transform: uppercase !important;
+        margin-top: 2px !important;
+        opacity: 0.95 !important;
+      }
     }
     @media (min-width: 769px) {
       .btn-txt-d {
@@ -237,6 +322,30 @@
       }
       .btn-txt-m {
         display: none !important;
+      }
+      .nav-logo img {
+        height: 50px !important;
+        width: 50px !important;
+      }
+      .nav-logo-text .brand {
+        font-size: 1.45rem !important;
+        letter-spacing: 2.5px !important;
+      }
+      .nav-logo-text .tagline {
+        font-size: 9px !important;
+        letter-spacing: 2.5px !important;
+      }
+      .footer-logo img {
+        height: 56px !important;
+        width: 56px !important;
+      }
+      .footer-logo-text .brand {
+        font-size: 1.4rem !important;
+        letter-spacing: 2.5px !important;
+      }
+      .footer-logo-text .tagline {
+        font-size: 9.5px !important;
+        letter-spacing: 2.5px !important;
       }
     }
   </style>
@@ -246,8 +355,12 @@
   <!-- ── NAVBAR ── -->
   <nav id="navbar">
     <div class="container nav-inner">
-      <a href="#hero" class="nav-logo">
+      <a href="#hero" class="nav-logo" aria-label="NISA MAKEOVER Home">
         <img src="assets/logo/logo.jpg" alt="NISA MAKEOVER Logo" />
+        <div class="nav-logo-text">
+          <span class="brand">NISA MAKEOVER</span>
+          <span class="tagline">Beauty Beyond Borders</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#hero" class="active">Home</a></li>
@@ -635,6 +748,10 @@
         <div class="footer-brand">
           <div class="footer-logo">
             <img src="assets/logo/logo.jpg" alt="NISA MAKEOVER" />
+            <div class="footer-logo-text">
+              <span class="brand">NISA MAKEOVER</span>
+              <span class="tagline">Beauty Beyond Borders</span>
+            </div>
           </div>
           <p class="footer-about">NISA MAKEOVER brings luxury beauty to your doorstep. Professional, personalized, and premium — every look tells your story.</p>
         </div>
