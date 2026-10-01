@@ -5,9 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NISA MAKEOVER — Luxury beauty services at your doorstep. Professional bridal makeup, hair styling, saree draping in Hyderabad." />
   <title>NISA MAKEOVER — Beauty Beyond Borders</title>
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=10" />
   <link rel="icon" type="image/jpeg" href="assets/logo/logo.jpg" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* CRITICAL MOBILE RESILIENCE OVERRIDES (Immediate Cache-Bust) */
+    @media (max-width: 640px) {
+      .booking-cta-card {
+        padding: 24px 14px !important;
+        margin: 0 4px !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+      .booking-cta-card h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 8px !important;
+      }
+      .booking-cta-card p {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 16px !important;
+      }
+      .b-cta-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .b-cta-actions .btn-primary,
+      .b-cta-app-btn {
+        width: 100% !important;
+        padding: 12px 14px !important;
+        font-size: 12.5px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+      }
+      .b-cta-workshop-wrap {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .b-cta-workshop-wrap .btn-workshop-premium {
+        width: 100% !important;
+        padding: 12px 10px !important;
+        font-size: 11px !important;
+        letter-spacing: 0.3px !important;
+        white-space: nowrap !important;
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+      }
+      .b-cta-workshop-wrap .btn-workshop-premium span.btn-txt-d {
+        display: none !important;
+      }
+      .b-cta-workshop-wrap .btn-workshop-premium span.btn-txt-m {
+        display: inline !important;
+      }
+      .b-cta-timer-badge {
+        font-size: 10.5px !important;
+        padding: 4px 10px !important;
+        margin-top: 6px !important;
+      }
+    }
+    @media (min-width: 641px) {
+      .b-cta-workshop-wrap .btn-workshop-premium span.btn-txt-d {
+        display: inline !important;
+      }
+      .b-cta-workshop-wrap .btn-workshop-premium span.btn-txt-m {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -318,13 +394,15 @@
         <h3>Book Your Salon & Bridal Appointment</h3>
         <p>Doorstep luxury home service or personalized studio appointment at Attapur Road, Hyderabad. Click below to open our 3-step appointment booking form.</p>
         <div class="b-cta-actions">
-          <button type="button" class="btn-primary" onclick="openAppointmentModal()">
-            <span><i data-lucide="calendar" class="btn-icon"></i> Open Appointment Form</span>
+          <button type="button" class="btn-primary b-cta-app-btn" onclick="openAppointmentModal()">
+            <i data-lucide="calendar" class="btn-icon"></i>
+            <span>Book Appointment</span>
           </button>
           <div class="b-cta-workshop-wrap masterclass-expire-target">
-            <button type="button" class="btn-workshop-premium" onclick="openWorkshopModal()" style="width:100%;">
+            <button type="button" class="btn-workshop-premium b-cta-ws-btn" onclick="openWorkshopModal()" style="width:100%;">
               <i data-lucide="crown" class="btn-icon"></i>
-              <span>1-Day Bridal Masterclass (Offer ₹4,999 Only)</span>
+              <span class="btn-txt-d">1-Day Bridal Masterclass (Offer ₹4,999 Only)</span>
+              <span class="btn-txt-m">Bridal Masterclass • ₹4,999</span>
             </button>
             <div class="b-cta-timer-badge">
               <i data-lucide="hourglass" class="timer-mini-icon timer-pulse"></i> Starts in: <strong id="bookingSecTimer">09d : 18h : 38m : 11s</strong>

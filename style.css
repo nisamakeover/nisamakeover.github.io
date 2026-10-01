@@ -2532,26 +2532,47 @@ html, body {
   }
 
   /* Booking Section CTAs */
+  .b-cta-actions,
+  .booking-cta-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .b-cta-actions .btn-primary,
+  .b-cta-app-btn,
   .booking-cta-actions .btn-primary {
     width: 100% !important;
     justify-content: center !important;
     white-space: nowrap !important;
-    font-size: 12px !important;
-    padding: 12px 18px !important;
-    letter-spacing: 0.8px !important;
+    font-size: 12.5px !important;
+    padding: 12px 14px !important;
+    letter-spacing: 0.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
   }
   .b-cta-workshop-wrap {
     width: 100% !important;
     margin: 0 auto !important;
+    box-sizing: border-box !important;
   }
   .b-cta-workshop-wrap .btn-workshop-premium {
     width: 100% !important;
     font-size: 11px !important;
     padding: 12px 10px !important;
-    letter-spacing: 0.8px !important;
+    letter-spacing: 0.3px !important;
     white-space: nowrap !important;
     justify-content: center !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
   }
+  .btn-txt-d { display: none !important; }
+  .btn-txt-m { display: inline !important; }
 
   /* Contact Section Buttons: Side-by-side in 1 Row */
   .contact-btns {
