@@ -1334,7 +1334,7 @@
   </section>
 
   <!-- ── WORKSHOP INCLUDES / CURRICULUM ── -->
-  <section class="ws-section ws-section-alt">
+  <section class="ws-section ws-section-alt" id="what-included">
     <div class="container">
       <div class="ws-header">
         <span class="section-tag"><i data-lucide="sparkles" class="icon-tag"></i> Comprehensive Syllabus</span>
@@ -1420,7 +1420,7 @@
   </section>
 
   <!-- ── VENUE & CONTACT DETAILS ── -->
-  <section class="ws-section">
+  <section class="ws-section" id="venue">
     <div class="container">
       <div class="ws-venue-card">
         <div class="ws-venue-info">
@@ -1543,6 +1543,44 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── FLOATING DYNAMIC ISLAND MENU BAR (WORKSHOP) ── -->
+  <nav class="floating-island-nav" id="floatingNav" aria-label="Quick Navigation">
+    <a href="index.html" class="island-item" aria-label="Home">
+      <span class="island-icon">
+        <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </span>
+      <span class="island-label">Home</span>
+    </a>
+
+    <a href="#hero" class="island-item active" data-target="hero" aria-label="Masterclass">
+      <span class="island-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.735H5.81a1 1 0 0 1-.957-.735L2.019 6.019a.5.5 0 0 1 .798-.52l4.277 3.665a1 1 0 0 0 1.516-.294z"></path><path d="M5 21h14"></path></svg>
+      </span>
+      <span class="island-label">Masterclass</span>
+    </a>
+
+    <a href="#what-included" class="island-item" data-target="what-included" aria-label="Curriculum">
+      <span class="island-icon">
+        <svg viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+      </span>
+      <span class="island-label">Curriculum</span>
+    </a>
+
+    <a href="#venue" class="island-item" data-target="venue" aria-label="Venue">
+      <span class="island-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      </span>
+      <span class="island-label">Venue</span>
+    </a>
+
+    <a href="#workshop-cta" class="island-item" data-target="workshop-cta" aria-label="Register">
+      <span class="island-icon">
+        <svg viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path></svg>
+      </span>
+      <span class="island-label">Register</span>
+    </a>
+  </nav>
 
   <!-- ── 1. WORKSHOP REGISTRATION POPUP MODAL (MASTERCLASS) ── -->
   <div id="workshopModal" class="ws-modal" onclick="closeWorkshopModal(event)">

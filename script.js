@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
   /* ── 4. SMOOTH SCROLL ── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]:not(.island-item)').forEach(a => {
     a.addEventListener("click", e => {
       const href = a.getAttribute("href");
       if (href === "#booking" || href === "#register") return;
@@ -64,13 +64,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ── 5. ACTIVE NAV ── */
+  /* ── 5. ACTIVE NAV & FLOATING DYNAMIC ISLAND SCROLL-SPY ── */
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
-  window.addEventListener("scroll", () => {
+  const islandItems = document.querySelectorAll(".floating-island-nav .island-item");
+
+  function setIslandActive(targetId) {
+    if (!islandItems.length) return;
+    islandItems.forEach(item => {
+      if (item.getAttribute("data-target") === targetId) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+  }
+
+  function onScrollSpy() {
+    const scrollPos = window.scrollY;
+    const winHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Standard header nav links
     let cur = "";
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-    navLinks.forEach(l => { l.style.color = l.getAttribute("href") === `#${cur}` ? "var(--gold)" : ""; });
+    sections.forEach(s => {
+      if (scrollPos >= s.offsetTop - 140) cur = s.id;
+    });
+    navLinks.forEach(l => {
+      l.style.color = l.getAttribute("href") === `#${cur}` ? "var(--gold)" : "";
+    });
+
+    // Floating Dynamic Island Menu
+    if (islandItems.length > 0) {
+      // 1. Bottom of page check
+      if (scrollPos + winHeight >= docHeight - 90) {
+        const lastItem = islandItems[islandItems.length - 1];
+        const lastTarget = lastItem.getAttribute("data-target");
+        if (lastTarget) {
+          setIslandActive(lastTarget);
+          return;
+        }
+      }
+
+      // 2. Dynamic section detection based on active page's island targets
+      let activeTarget = islandItems[0].getAttribute("data-target") || "hero";
+      islandItems.forEach(item => {
+        const targetId = item.getAttribute("data-target");
+        if (targetId) {
+          const el = document.getElementById(targetId);
+          if (el && scrollPos >= el.offsetTop - 240) {
+            activeTarget = targetId;
+          }
+        }
+      });
+      setIslandActive(activeTarget);
+    }
+  }
+
+  window.addEventListener("scroll", onScrollSpy, { passive: true });
+  onScrollSpy(); // Initial check on page load
+
+  // Floating Island click handling
+  islandItems.forEach(item => {
+    const href = item.getAttribute("href");
+    if (href && href.startsWith("#")) {
+      item.addEventListener("click", e => {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const targetOffset = target.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({ top: targetOffset, behavior: "smooth" });
+          setIslandActive(item.getAttribute("data-target"));
+        }
+      });
+    }
   });
 
   /* ── 6. MIN DATE ── */

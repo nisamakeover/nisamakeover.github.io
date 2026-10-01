@@ -2469,3 +2469,136 @@ html, body {
     border: none !important;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   FLOATING DYNAMIC ISLAND MENU BAR
+   - Active: SVG Icon + Name Label (expanded glowing capsule)
+   - Inactive: ONLY SVG Icon (label collapsed)
+   - Auto-active on scroll (Scroll-Spy)
+   ════════════════════════════════════════════════════════════════ */
+.floating-island-nav {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  background: rgba(14, 11, 7, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(216, 174, 67, 0.45);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(216, 174, 67, 0.3);
+  border-radius: 50px;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Inactive items: ONLY SVG icon visible, compact pill/circle */
+.island-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 11px;
+  border-radius: 30px;
+  color: rgba(245, 238, 227, 0.65);
+  text-decoration: none;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.island-item .island-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.island-item .island-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  fill: none;
+  display: block;
+}
+
+/* By default (inactive), the label name is hidden completely */
+.island-item .island-label {
+  display: none;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.island-item:hover:not(.active) {
+  color: var(--gold-light, #e2c06a);
+  background: rgba(216, 174, 67, 0.1);
+}
+
+/* ACTIVE STATE: Capsule expansion with label and highlighted luxury gold glow */
+.island-item.active {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.35), rgba(168, 133, 46, 0.52));
+  border: 1px solid rgba(240, 198, 90, 0.75);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0 14px 0 12px;
+}
+
+.island-item.active .island-icon {
+  color: #ffe28a;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.55));
+  transform: scale(1.08);
+}
+
+.island-item.active .island-label {
+  display: inline-block;
+  animation: islandFadeIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes islandFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile responsive fine-tuning */
+@media (max-width: 480px) {
+  .floating-island-nav {
+    bottom: max(14px, env(safe-area-inset-bottom, 14px));
+    gap: 3px;
+    padding: 5px 6px;
+  }
+  .island-item {
+    height: 36px;
+    padding: 0 9px;
+  }
+  .island-item .island-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+  .island-item.active {
+    padding: 0 12px 0 10px;
+  }
+  .island-item.active .island-label {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+}
