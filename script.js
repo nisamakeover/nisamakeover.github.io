@@ -3,7 +3,7 @@
    Simple WhatsApp Booking — No Calendly, No Backend
    ============================================================ */
 
-const WA_NUMBER = "917993323149"; // +91 79933 23149
+const WA_NUMBER = "916305692152"; // +91 63056 92152
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -544,10 +544,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageDisplay = msgVal || "None";
 
     let message = `Hello NISA MAKEOVER,\n\n`;
-    message += `*1-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
-    message += `Theme: Wedding × Reception Artistry\n`;
-    message += `📅 Date: 11 October 2026\n`;
-    message += `⏰ Time: 11:00 AM – 5:00 PM\n\n`;
+    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
+    message += `Theme: Bridal × Wedding × Reception Artistry\n`;
+    message += `📅 Dates: 11–15 October 2026\n`;
+    message += `⏰ Time: 11:00 AM – 5:00 PM (Each Day)\n\n`;
     message += `Participant Details:\n`;
     message += `• Full Name: ${name}\n`;
     message += `• WhatsApp: ${phone}\n`;
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message += `• Experience: ${exp}\n`;
     message += `• Questions/Notes: ${messageDisplay}\n\n`;
     message += `Special Offer Fee: ₹4,999 Only / Person (Regular ₹15,000)\n`;
-    message += `Included: Digital Certificate of Participation\n\n`;
+    message += `Included: All Products Provided • Hands-On Practice • Digital Certificate\n\n`;
     message += `Venue:\n`;
     message += `Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad\n\n`;
     message += `Please confirm seat availability and payment instructions.`;
@@ -565,11 +565,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ══════════════════════════════════════════════════════════
-     MASTERCLASS COUNTDOWN & AUTO-EXPIRY (11 OCT 2026)
-     Auto-removes masterclass button from Home Page after 11 Oct
+     MASTERCLASS COUNTDOWN & AUTO-EXPIRY (11-15 OCT 2026)
+     Auto-removes masterclass button from Home Page after 15 Oct
   ══════════════════════════════════════════════════════════ */
   const MASTERCLASS_START_DATE = new Date("2026-10-11T11:00:00+05:30");
-  const MASTERCLASS_END_DATE   = new Date("2026-10-11T17:00:00+05:30");
+  const MASTERCLASS_END_DATE   = new Date("2026-10-15T17:00:00+05:30");
 
   function manageHomeMasterclass() {
     const now = new Date();

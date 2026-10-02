@@ -1,15 +1,15 @@
 /* ============================================================
    NISA MAKEOVER — workshop.js
-   1-Day Bridal Makeup Masterclass Registration & Timer Logic
-   Date: 11 October 2026 | Time: 11:00 AM – 5:00 PM
+   5-Day Bridal Makeup Masterclass Registration & Timer Logic
+   Dates: 11–15 October 2026 | Time: 11:00 AM – 5:00 PM
    Fee: ₹4,999 Only / Person (Special Offer - Regular ₹15,000)
-   Includes: Digital Certificate of Participation
+   Includes: Hands-On Practice + All Products Provided + Digital Certificate
    Venue: Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad
    ============================================================ */
 
-const WA_NUMBER = "917993323149"; // +91 79933 23149
+const WA_NUMBER = "916305692152"; // +91 63056 92152
 const MASTERCLASS_START = new Date("2026-10-11T11:00:00+05:30");
-const MASTERCLASS_END   = new Date("2026-10-11T17:00:00+05:30");
+const MASTERCLASS_END   = new Date("2026-10-15T17:00:00+05:30");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -224,10 +224,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageDisplay = msgVal || "None";
 
     let message = `Hello NISA MAKEOVER,\n\n`;
-    message += `*1-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
-    message += `Theme: Wedding × Reception Artistry\n`;
-    message += `📅 Date: 11 October 2026\n`;
-    message += `⏰ Time: 11:00 AM – 5:00 PM\n\n`;
+    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
+    message += `Theme: Bridal × Wedding × Reception Artistry\n`;
+    message += `📅 Dates: 11–15 October 2026\n`;
+    message += `⏰ Time: 11:00 AM – 5:00 PM (Daily)\n`;
+    message += `✅ All Products Provided — No need to bring anything!\n`;
+    message += `✅ Hands-On Practice Included\n\n`;
     message += `Participant Details:\n`;
     message += `• Full Name: ${name}\n`;
     message += `• WhatsApp: ${phone}\n`;
@@ -235,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message += `• Experience: ${exp}\n`;
     message += `• Questions/Notes: ${messageDisplay}\n\n`;
     message += `Special Offer Fee: ₹4,999 Only / Person (Regular ₹15,000)\n`;
-    message += `Included: Digital Certificate of Participation\n\n`;
+    message += `Included: Hands-On Practice + All Products + Digital Certificate\n\n`;
     message += `Venue:\n`;
     message += `Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad\n\n`;
     message += `Please confirm seat availability and payment instructions.`;

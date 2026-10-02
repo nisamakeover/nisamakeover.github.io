@@ -2358,14 +2358,14 @@ html, body {
     text-shadow: 0 2px 10px rgba(216, 174, 67, 0.5) !important;
   }
   .hmc-only {
-    font-size: 8.5px !important;
+    font-size: 9px !important;
     letter-spacing: 1px !important;
-    color: #ffffff !important;
-    background: rgba(201, 168, 76, 0.35) !important;
-    border: 1px solid rgba(201, 168, 76, 0.5) !important;
-    padding: 1px 6px !important;
-    border-radius: 4px !important;
-    font-weight: 800 !important;
+    color: var(--gold-light) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
   }
 
   /* Compact Countdown Timer Centered */
