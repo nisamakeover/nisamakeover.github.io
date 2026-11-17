@@ -544,10 +544,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageDisplay = msgVal || "None";
 
     let message = `Hello NISA MAKEOVER,\n\n`;
-    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
+    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS PRE-REGISTRATION*\n`;
     message += `Theme: Bridal × Wedding × Reception Artistry\n`;
-    message += `📅 Dates: 11–15 October 2026\n`;
-    message += `⏰ Time: 11:00 AM – 5:00 PM (Each Day)\n\n`;
+    message += `📅 Batch: Upcoming Monthly Batch (1 Week Intensive Hands-On)\n`;
+    message += `⏰ Timing: 11:00 AM – 5:00 PM (Daily)\n\n`;
     message += `Participant Details:\n`;
     message += `• Full Name: ${name}\n`;
     message += `• WhatsApp: ${phone}\n`;
@@ -555,55 +555,25 @@ document.addEventListener("DOMContentLoaded", () => {
     message += `• Experience: ${exp}\n`;
     message += `• Questions/Notes: ${messageDisplay}\n\n`;
     message += `Special Offer Fee: ₹4,999 Only / Person (Regular ₹15,000)\n`;
-    message += `Included: All Products Provided • Hands-On Practice • Digital Certificate\n\n`;
+    message += `Included: All Products Provided • Hands-On Practice • Digital Certificate • Limited Seats\n\n`;
     message += `Venue:\n`;
     message += `Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad\n\n`;
-    message += `Please confirm seat availability and payment instructions.`;
+    message += `Please confirm seat availability and notify me with the upcoming batch dates.`;
 
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
     showToast("✨ Opening WhatsApp with your registration details...");
   }
 
   /* ══════════════════════════════════════════════════════════
-     MASTERCLASS COUNTDOWN & AUTO-EXPIRY (11-15 OCT 2026)
-     Auto-removes masterclass button from Home Page after 15 Oct
+     MASTERCLASS ENROLLMENT STATUS (MONTHLY ROLLING BATCHES)
   ══════════════════════════════════════════════════════════ */
-  const MASTERCLASS_START_DATE = new Date("2026-10-11T11:00:00+05:30");
-  const MASTERCLASS_END_DATE   = new Date("2026-10-15T17:00:00+05:30");
-
   function manageHomeMasterclass() {
-    const now = new Date();
-    // After 11 Oct 5:00 PM, automatically hide masterclass buttons completely!
-    if (now > MASTERCLASS_END_DATE) {
-      document.querySelectorAll(".masterclass-expire-target, .btn-hero-workshop, #homeWorkshopTimer").forEach(el => {
-        el.style.display = "none";
-      });
-      return;
-    }
-
-    const diff = MASTERCLASS_START_DATE - now;
-    if (diff <= 0) {
-      document.querySelectorAll("#bookingSecTimer, #wsModalTimer, .ws-modal-live-timer").forEach(el => {
-        el.textContent = "SESSION IN PROGRESS!";
-      });
-      return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / 1000 / 60) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    const pad = n => String(n).padStart(2, '0');
-    const timerText = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
-
     document.querySelectorAll("#bookingSecTimer, #wsModalTimer, .ws-modal-live-timer").forEach(el => {
-      el.textContent = timerText;
+      el.textContent = "ADMISSIONS OPEN";
     });
   }
 
   manageHomeMasterclass();
-  setInterval(manageHomeMasterclass, 1000);
 
 });
 

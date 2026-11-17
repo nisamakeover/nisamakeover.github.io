@@ -1,0 +1,6 @@
+# robots.txt for NISA MAKEOVER (https://nisamakeover.github.io/)
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://nisamakeover.github.io/sitemap.xml

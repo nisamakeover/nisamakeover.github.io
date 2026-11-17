@@ -1,0 +1,5 @@
+# Local backups & dev files
+assets_backup/
+.vscode/
+.idea/
+*.log

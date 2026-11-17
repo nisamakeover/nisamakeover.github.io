@@ -1,7 +1,7 @@
 /* ============================================================
    NISA MAKEOVER — workshop.js
-   5-Day Bridal Makeup Masterclass Registration & Timer Logic
-   Dates: 11–15 October 2026 | Time: 11:00 AM – 5:00 PM
+   5-Day Bridal Makeup Masterclass Registration Logic
+   Schedule: Monthly Rolling Batches | Time: 11:00 AM – 5:00 PM
    Fee: ₹4,999 Only / Person (Special Offer - Regular ₹15,000)
    Includes: Hands-On Practice + All Products Provided + Digital Certificate
    Venue: Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad
@@ -18,40 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const errBox    = document.getElementById("wsFormError");
 
   /* ══════════════════════════════════════════════
-     LIVE COUNTDOWN TIMER
+     LIVE ENROLLMENT STATUS (MONTHLY ROLLING BATCHES)
   ══════════════════════════════════════════════ */
   function updateTimer() {
     const timerEl = document.getElementById("wsHeroTimer");
-    if (!timerEl) return;
-
-    const now = new Date();
-    const diff = MASTERCLASS_START - now;
-
-    if (diff <= 0) {
-      if (now <= MASTERCLASS_END) {
-        timerEl.textContent = "SESSION IN PROGRESS!";
-      } else {
-        timerEl.textContent = "COMPLETED";
-      }
-      return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / 1000 / 60) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    const pad = n => String(n).padStart(2, '0');
-    const timerStr = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
-    if (timerEl) timerEl.textContent = timerStr;
+    if (timerEl) timerEl.textContent = "ADMISSIONS OPEN";
 
     document.querySelectorAll("#wsModalTimerWs, #wsModalTimer, .ws-modal-live-timer").forEach(el => {
-      el.textContent = timerStr;
+      el.textContent = "ADMISSIONS OPEN";
     });
   }
 
   updateTimer();
-  setInterval(updateTimer, 1000);
 
   /* ══════════════════════════════════════════════
      POPUP MODAL CONTROLS — WORKSHOP & APPOINTMENT
@@ -224,10 +202,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageDisplay = msgVal || "None";
 
     let message = `Hello NISA MAKEOVER,\n\n`;
-    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS REGISTRATION*\n`;
+    message += `*5-DAY BRIDAL MAKEUP MASTERCLASS PRE-REGISTRATION*\n`;
     message += `Theme: Bridal × Wedding × Reception Artistry\n`;
-    message += `📅 Dates: 11–15 October 2026\n`;
+    message += `📅 Batch: Upcoming Monthly Batch (1 Week Intensive)\n`;
     message += `⏰ Time: 11:00 AM – 5:00 PM (Daily)\n`;
+    message += `✅ Limited Seats for 1-on-1 Personal Attention\n`;
     message += `✅ All Products Provided — No need to bring anything!\n`;
     message += `✅ Hands-On Practice Included\n\n`;
     message += `Participant Details:\n`;
@@ -240,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message += `Included: Hands-On Practice + All Products + Digital Certificate\n\n`;
     message += `Venue:\n`;
     message += `Pillar No. 242, Near Fish Building, Attapur Road, Hyderabad\n\n`;
-    message += `Please confirm seat availability and payment instructions.`;
+    message += `Please confirm seat availability and notify me with the upcoming batch dates.`;
 
     // ── Open WhatsApp Web / App ──
     const targetUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
