@@ -483,6 +483,242 @@
         letter-spacing: 2.5px !important;
       }
     }
+
+    /* HERO SLIDER MOBILE UNBLOCKING FIX */
+    @media (max-width: 768px) {
+      .hero-card-tag {
+        display: none !important; /* Hides 'Portfolio Look' badge covering top-left */
+      }
+      .hero-slide-label {
+        display: none !important; /* Hides duplicate badge pill covering bottom text */
+      }
+      .hero-slider-card .slider-dots {
+        bottom: 14px !important;
+        z-index: 7 !important;
+      }
+      .hero-slider-card .slider-arrow {
+        top: auto !important;
+        bottom: 8px !important;
+        transform: none !important;
+        width: 32px !important;
+        height: 32px !important;
+        background: rgba(10, 8, 3, 0.8) !important;
+        border: 1px solid rgba(201, 168, 76, 0.55) !important;
+        color: var(--gold, #c9a84c) !important;
+        z-index: 8 !important;
+      }
+      .hero-slider-card .slider-prev {
+        left: 10px !important;
+      }
+      .hero-slider-card .slider-next {
+        right: 10px !important;
+      }
+    }
+
+    /* STUDIO GALLERY CARD HOVER & ZOOM BADGE */
+    .studio-photo-card {
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .studio-photo-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 168, 76, 0.55) !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    .studio-zoom-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(10, 8, 3, 0.8);
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      color: var(--gold, #c9a84c);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      opacity: 0.85;
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+    .studio-photo-card:hover .studio-zoom-badge {
+      background: var(--gold, #c9a84c);
+      color: #0a0803;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* STUDIO LIGHTBOX POPUP MODAL */
+    .studio-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10005;
+      background: rgba(5, 5, 5, 0.94);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .studio-lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .studio-lightbox-inner {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      background: #11100d;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .studio-lightbox.active .studio-lightbox-inner {
+      transform: scale(1);
+    }
+    .studio-lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(10, 8, 3, 0.85);
+      border: 1px solid rgba(201, 168, 76, 0.45);
+      color: var(--gold, #c9a84c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .studio-lightbox-close:hover {
+      background: var(--gold, #c9a84c);
+      color: #0a0803;
+      transform: scale(1.08);
+    }
+    .studio-lightbox-nav {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(10, 8, 3, 0.85);
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      color: var(--gold, #c9a84c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 11;
+      transition: background 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .studio-lightbox-nav:hover {
+      background: var(--gold, #c9a84c);
+      color: #0a0803;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .studio-lightbox-prev { left: 14px; }
+    .studio-lightbox-next { right: 14px; }
+    
+    .studio-lightbox-media {
+      width: 100%;
+      max-height: 60vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .studio-lightbox-img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+    .studio-lightbox-caption {
+      padding: 16px 20px;
+      background: #141310;
+      border-top: 1px solid rgba(201, 168, 76, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .studio-lightbox-cat {
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--gold, #c9a84c);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .studio-lightbox-title {
+      margin: 2px 0 0;
+      font-size: 1.15rem;
+      color: #fff;
+      font-family: var(--font-display, serif);
+      font-weight: 500;
+    }
+    .studio-lightbox-desc {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #aaa;
+      line-height: 1.4;
+    }
+    .studio-lightbox-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .studio-lightbox-counter {
+      font-size: 12px;
+      color: var(--gold, #c9a84c);
+      font-weight: 600;
+      letter-spacing: 1px;
+      background: rgba(201, 168, 76, 0.12);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+    }
+    .studio-lightbox-dir-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #0a0803;
+      background: var(--gold, #c9a84c);
+      padding: 7px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .studio-lightbox { padding: 8px; }
+      .studio-lightbox-inner { border-radius: 12px; }
+      .studio-lightbox-media { max-height: 52vh; }
+      .studio-lightbox-img { max-height: 52vh; }
+      .studio-lightbox-nav { width: 36px; height: 36px; }
+      .studio-lightbox-prev { left: 8px; }
+      .studio-lightbox-next { right: 8px; }
+      .studio-lightbox-caption { padding: 12px; }
+      .studio-lightbox-title { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -755,11 +991,12 @@
       <!-- Studio Photos Gallery Grid -->
       <div class="studio-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
         
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(0)" role="button" tabindex="0" aria-label="View Grand Salon Entrance in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/golden-salon-entrance.webp" alt="NISA MAKEOVER Golden Salon Entrance Attapur Hyderabad" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Studio Welcome</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Grand Salon Entrance</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Warm, welcoming gold aesthetic designed for bridal consultations.</p>
@@ -767,11 +1004,12 @@
           </div>
         </div>
 
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(1)" role="button" tabindex="0" aria-label="View Luxury Vanity Stations in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/mauve-salon-vanity.webp" alt="Luxury Salon Vanity Mirrors and Styling Stations Nisa Makeover" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Styling Suite</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Luxury Vanity Stations</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Ergonomic chairs with daylight-balanced lighting for precise makeup.</p>
@@ -779,11 +1017,12 @@
           </div>
         </div>
 
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(2)" role="button" tabindex="0" aria-label="View Blush & Gold Glamour Station in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/blush-gold-vanity-corner.webp" alt="Bridal Makeup Glamour Corner Nisa Makeover Hyderabad" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Bridal Corner</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Blush &amp; Gold Glamour Station</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Curated space for brides to get styled with peace of mind.</p>
@@ -791,11 +1030,12 @@
           </div>
         </div>
 
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(3)" role="button" tabindex="0" aria-label="View Spa Retreat Lounge in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/warm-plum-spa-retreat.webp" alt="Plum Salon Spa Retreat Lounge Nisa Makeover" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Serene Atmosphere</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Spa Retreat Lounge</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Comfortable waiting &amp; consultation lounge for clients and family.</p>
@@ -803,11 +1043,12 @@
           </div>
         </div>
 
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(4)" role="button" tabindex="0" aria-label="View Skincare & Facial Suite in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/plum-toned-spa-room.webp" alt="Private Facial and Skincare Room Nisa Makeover Studio" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Private Suite</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Skincare &amp; Facial Suite</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Hygienic and private space for pre-bridal skincare &amp; treatments.</p>
@@ -815,14 +1056,28 @@
           </div>
         </div>
 
-        <div class="studio-photo-card reveal" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+        <div class="studio-photo-card reveal" onclick="openStudioModal(5)" role="button" tabindex="0" aria-label="View Bridal Makeover Studio in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
           <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
             <img src="assets/studio/bridal-beauty-showcase.webp" alt="Bridal Beauty Artistry Showcase Nisa Makeover" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);"></div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
               <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Artistry Hub</span>
               <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Bridal Makeover Studio</h4>
               <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Where bridal transformations and hands-on masterclasses take place.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="studio-photo-card reveal" onclick="openStudioModal(6)" role="button" tabindex="0" aria-label="View Complete Studio Overview & Amenities in full size" style="background: var(--black-light, #141414); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; position: relative;">
+          <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
+            <img src="assets/studio/salon-services-collage.webp" alt="Full Studio Overview & Amenities Nisa Makeover Hyderabad" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+            <div class="studio-zoom-badge" aria-hidden="true"><i data-lucide="maximize-2" style="width:16px; height:16px;"></i></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.2) 50%, transparent 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; pointer-events: none;">
+              <span style="display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold, #c9a84c); font-weight: 600; margin-bottom: 4px;">Complete Studio Tour</span>
+              <h4 style="font-size: 15px; color: #fff; margin: 0; font-weight: 600;">Full Studio Overview &amp; Amenities</h4>
+              <p style="font-size: 11.5px; color: #bbb; margin: 4px 0 0; line-height: 1.4;">Explore our complete beauty facility at Attapur, Hyderabad.</p>
             </div>
           </div>
         </div>
@@ -1079,6 +1334,41 @@
         <button type="button" class="btn-primary" onclick="bookFromServiceModal()" style="margin: 0 auto; font-size: 11.5px; padding: 10px 20px; white-space: nowrap; letter-spacing: 0.5px;">
           <span><i data-lucide="calendar" class="btn-icon"></i> Book This Service</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+    <!-- ------ STUDIO LIGHTBOX MODAL ------ -->
+  <div id="studioModal" class="studio-lightbox" onclick="closeStudioModal(event)" role="dialog" aria-modal="true" aria-label="Studio Photo Viewer">
+    <div class="studio-lightbox-inner" onclick="event.stopPropagation()">
+      <button type="button" class="studio-lightbox-close" onclick="closeStudioModal()" aria-label="Close Preview">&times;</button>
+      
+      <!-- Navigation Arrows -->
+      <button type="button" class="studio-lightbox-nav studio-lightbox-prev" onclick="prevStudioPhoto()" aria-label="Previous Photo">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button type="button" class="studio-lightbox-nav studio-lightbox-next" onclick="nextStudioPhoto()" aria-label="Next Photo">
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <!-- Image View -->
+      <div class="studio-lightbox-media" id="studioLightboxMedia">
+        <img id="studioLightboxImg" src="" alt="Nisa Makeover Studio" class="studio-lightbox-img" />
+      </div>
+
+      <!-- Caption & Action Bar -->
+      <div class="studio-lightbox-caption">
+        <div class="studio-lightbox-info">
+          <span class="studio-lightbox-cat" id="studioLightboxCat"></span>
+          <h3 class="studio-lightbox-title" id="studioLightboxTitle"></h3>
+          <p class="studio-lightbox-desc" id="studioLightboxDesc"></p>
+        </div>
+        <div class="studio-lightbox-meta">
+          <span class="studio-lightbox-counter" id="studioLightboxCounter">1 / 7</span>
+          <button type="button" class="studio-lightbox-dir-btn" onclick="bookFromStudioModal()">
+            <i data-lucide="calendar" style="width:14px; height:14px;"></i> Book Studio Visit
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1356,8 +1646,167 @@
     }
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeServiceModal();
+      if (e.key === 'Escape') {
+        closeServiceModal();
+        closeStudioModal();
+      }
     });
+
+    // Studio Photo Gallery Lightbox Modal Controller
+    const studioPhotos = [
+      {
+        src: 'assets/studio/golden-salon-entrance.webp',
+        category: 'Studio Welcome',
+        title: 'Grand Salon Entrance',
+        desc: 'Warm, welcoming gold aesthetic designed for comfortable bridal consultations and walkthroughs.'
+      },
+      {
+        src: 'assets/studio/mauve-salon-vanity.webp',
+        category: 'Styling Suite',
+        title: 'Luxury Vanity Stations',
+        desc: 'Ergonomic chairs with daylight-balanced lighting for precise, camera-ready bridal makeup.'
+      },
+      {
+        src: 'assets/studio/blush-gold-vanity-corner.webp',
+        category: 'Bridal Corner',
+        title: 'Blush & Gold Glamour Station',
+        desc: 'Curated space for brides to get styled with peace of mind and personalised attention.'
+      },
+      {
+        src: 'assets/studio/warm-plum-spa-retreat.webp',
+        category: 'Serene Atmosphere',
+        title: 'Spa Retreat Lounge',
+        desc: 'Comfortable waiting and consultation lounge for clients, bridal parties, and family.'
+      },
+      {
+        src: 'assets/studio/plum-toned-spa-room.webp',
+        category: 'Private Suite',
+        title: 'Skincare & Facial Suite',
+        desc: 'Hygienic and private dedicated suite for pre-bridal skincare, facials, and glow treatments.'
+      },
+      {
+        src: 'assets/studio/bridal-beauty-showcase.webp',
+        category: 'Artistry Hub',
+        title: 'Bridal Makeover Studio',
+        desc: 'Where signature bridal transformations and hands-on academy masterclasses take place.'
+      },
+      {
+        src: 'assets/studio/salon-services-collage.webp',
+        category: 'Complete Studio Tour',
+        title: 'Full Studio Overview & Amenities',
+        desc: 'Explore our complete facility at Pillar No. 242, Attapur Road, Hyderabad.'
+      }
+    ];
+
+    let currentStudioIdx = 0;
+
+    function openStudioModal(idx) {
+      if (typeof idx === 'number' && idx >= 0 && idx < studioPhotos.length) {
+        currentStudioIdx = idx;
+      }
+      renderStudioModalPhoto();
+      const modal = document.getElementById('studioModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function renderStudioModalPhoto() {
+      const p = studioPhotos[currentStudioIdx];
+      if (!p) return;
+      const img = document.getElementById('studioLightboxImg');
+      const cat = document.getElementById('studioLightboxCat');
+      const title = document.getElementById('studioLightboxTitle');
+      const desc = document.getElementById('studioLightboxDesc');
+      const counter = document.getElementById('studioLightboxCounter');
+
+      if (img) {
+        img.style.opacity = '0.3';
+        img.src = p.src;
+        img.alt = p.title + ' - Nisa Makeover Studio';
+        img.onload = () => { img.style.opacity = '1'; };
+      }
+      if (cat) cat.textContent = p.category;
+      if (title) title.textContent = p.title;
+      if (desc) desc.textContent = p.desc;
+      if (counter) counter.textContent = (currentStudioIdx + 1) + ' / ' + studioPhotos.length;
+    }
+
+    function closeStudioModal(e) {
+      if (e && e.target !== document.getElementById('studioModal') && !e.target.closest('.studio-lightbox-close')) return;
+      const modal = document.getElementById('studioModal');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function nextStudioPhoto() {
+      currentStudioIdx = (currentStudioIdx + 1) % studioPhotos.length;
+      renderStudioModalPhoto();
+    }
+
+    function prevStudioPhoto() {
+      currentStudioIdx = (currentStudioIdx - 1 + studioPhotos.length) % studioPhotos.length;
+      renderStudioModalPhoto();
+    }
+
+    function bookFromStudioModal() {
+      closeStudioModal();
+      if (typeof openAppointmentModal === 'function') {
+        openAppointmentModal('Studio Visit');
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('studioModal');
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') nextStudioPhoto();
+      if (e.key === 'ArrowLeft') prevStudioPhoto();
+    });
+
+    // Touch Swipe handling for Studio Lightbox
+    (function initStudioSwipe() {
+      const box = document.getElementById('studioModal');
+      if (!box) return;
+      let startX = 0, startY = 0;
+      box.addEventListener('touchstart', function(e) {
+        startX = e.changedTouches[0].screenX;
+        startY = e.changedTouches[0].screenY;
+      }, { passive: true });
+      box.addEventListener('touchend', function(e) {
+        const diffX = e.changedTouches[0].screenX - startX;
+        const diffY = e.changedTouches[0].screenY - startY;
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX < 0) nextStudioPhoto();
+          else prevStudioPhoto();
+        }
+      }, { passive: true });
+    })();
+
+    // Touch Swipe handling for Hero Slider
+    (function initHeroSwipe() {
+      const heroCard = document.querySelector('.hero-slider-card');
+      if (!heroCard) return;
+      let hStartX = 0, hStartY = 0;
+      heroCard.addEventListener('touchstart', function(e) {
+        hStartX = e.changedTouches[0].screenX;
+        hStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+      heroCard.addEventListener('touchend', function(e) {
+        const diffX = e.changedTouches[0].screenX - hStartX;
+        const diffY = e.changedTouches[0].screenY - hStartY;
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX < 0) {
+            const nextBtn = document.querySelector('.slider-next');
+            if (nextBtn) nextBtn.click();
+          } else {
+            const prevBtn = document.querySelector('.slider-prev');
+            if (prevBtn) prevBtn.click();
+          }
+        }
+      }, { passive: true });
+    })();
   </script>
 
   <script>
